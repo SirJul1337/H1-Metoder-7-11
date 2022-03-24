@@ -17,9 +17,13 @@ namespace Metoder_7_11
             string prizeResult = Prize(correctNumber);
             Console.WriteLine("You got "+ correctNumber+" Numbers correct");
             Console.WriteLine(prizeResult);
+
+
             int randomNumber = SecretNumber();
-            //User guess
-            int userResult = UserGuess(randomNumber);
+            Console.WriteLine("Guess the number");
+            int guess = int.Parse(Console.ReadLine());
+            string userResult = UserGuess(randomNumber, guess);
+            Console.WriteLine(userResult);
             
         }
         #region Array - double index 5
@@ -96,25 +100,27 @@ namespace Metoder_7_11
             int randomNumber = r.Next(1,100); 
             return randomNumber;
         }
-        public static string UserGuess(int randomNumber)
+        public static string UserGuess(int randomNumber, int guess)
         {
             string output = "";
             int guessCount = 0;
+            Console.Clear();
             while (true)
             {
-                if (randomNumber > 0)
+                if (guess > randomNumber)
                 {
-
+                    Console.WriteLine("Your guess was too high");
                     guessCount++;
                 }
-                else if (randomNumber < 0)
+                else if (guess < randomNumber)
                 {
-                    guessCount++;
+                    Console.WriteLine("Your guess was too low");
+                    guessCount++; 
                 }
-                else if (randomNumber == 0)
+                else if ( guess == randomNumber)
                 {
                     guessCount++;
-                    if (guessCount >= 5)
+                    if (guessCount <= 5)
                     {
                         guessCount++;
                         output = "You guessed in "+ guessCount+ " good job";
@@ -124,8 +130,10 @@ namespace Metoder_7_11
                         guessCount++;
                         output = "You guessed in " + guessCount + " Could be better";
                     }
+                    break;
                 }
-                //ReadLine Guess inpu
+                guess = int.Parse(Console.ReadLine());
+
 
             }
                 return output;
