@@ -6,6 +6,8 @@ namespace Metoder_7_11
     {
         static void Main(string[] args)
         {
+            int number1 = 12;
+            int number2 = 3;
             int indexId = 5;
             int arrayResult = ArrayFind(indexId);
             Console.WriteLine(arrayResult);
@@ -24,6 +26,17 @@ namespace Metoder_7_11
             int guess = int.Parse(Console.ReadLine());
             string userResult = UserGuess(randomNumber, guess);
             Console.WriteLine(userResult);
+
+
+
+            int addNumbersResult = AddNumbers(3, 4);
+            Console.WriteLine(addNumbersResult);
+
+            float devideVarNumbers = DevideVarNumbers(number1, number2);
+            Console.WriteLine(devideVarNumbers);
+
+            int num2UpInNum1 = Num2UpInNum1(number1, number2);
+            Console.WriteLine("Number 2 goes up in Number 1 "+num2UpInNum1+" times");
             
         }
         #region Array - double index 5
@@ -139,6 +152,21 @@ namespace Metoder_7_11
                 return output;
         }
 
+        #endregion
+        #region Opgave 11
+
+        public static int AddNumbers(int number1, int number2)
+        {
+            return number1 + number2;
+        }
+        public static float DevideVarNumbers(int number1, int number2)
+        {
+            return (float)number1 / number2; 
+        }
+        public static int Num2UpInNum1(int number1, int number2)
+        {
+            return number1 / number2;
+        }
         #endregion
     }
 }
